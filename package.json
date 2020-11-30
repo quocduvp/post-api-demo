@@ -1,0 +1,40 @@
+{
+  "name": "psa-example-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=dev node app.js",
+    "stage": "cross-env NODE_ENV=stage node app.js",
+    "production": "cross-env NODE_ENV=production node app.js",
+    "watch:dev": "cross-env NODE_ENV=dev nodemon app.js",
+    "watch:stage": "cross-env NODE_ENV=stage nodemon app.js",
+    "watch:production": "cross-env NODE_ENV=production nodemon app.js",
+    "dev:migration:db": "cross-env NODE_ENV=dev npx sequelize-cli db:migrate",
+    "stage:migration:db": "cross-env NODE_ENV=stage npx sequelize-cli db:migrate",
+    "production:migration:db": "cross-env NODE_ENV=production npx sequelize-cli db:migrate",
+    "dev:seed:db": "cross-env NODE_ENV=dev npx sequelize-cli db:seed:all"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "joi": "^17.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.20",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "faker": "^5.1.0",
+    "nodemon": "^2.0.6",
+    "sequelize-cli": "^6.2.0"
+  }
+}
