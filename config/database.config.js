@@ -1,11 +1,12 @@
 require("./env.config");
 module.exports = Object.freeze({
   dev: {
-    username: process.env.MYSQL_USERNAME,
-    password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATABASE,
-    host: process.env.MYSQL_HOST,
-    dialect: "mysql",
+    username: process.env.PG_USERNAME,
+    password: process.env.PG_PASSWORD,
+    database: process.env.PG_DATABASE,
+    host: process.env.PG_HOST,
+    port: process.env.PG_PORT,
+    dialect: "postgres",
     operatorsAliases: 0,
     pool: {
       max: 10,
@@ -15,12 +16,13 @@ module.exports = Object.freeze({
     },
   },
   stage: {
-    username: process.env.MYSQL_USERNAME,
-    password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATABASE,
-    host: process.env.MYSQL_HOST,
+    username: process.env.PG_USERNAME,
+    password: process.env.PG_PASSWORD,
+    database: process.env.PG_DATABASE,
+    host: process.env.PG_HOST,
+    port: process.env.PG_PORT,
     operatorsAliases: 0,
-    dialect: "mysql",
+    dialect: "postgres",
     pool: {
       max: 10,
       min: 0,
@@ -29,11 +31,12 @@ module.exports = Object.freeze({
     },
   },
   production: {
-    username: process.env.MYSQL_USERNAME,
-    password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATABASE,
-    host: process.env.MYSQL_HOST,
-    dialect: "mysql",
+    username: process.env.PG_USERNAME,
+    password: process.env.PG_PASSWORD,
+    database: process.env.PG_DATABASE,
+    host: process.env.PG_HOST,
+    port: process.env.PG_PORT,
+    dialect: "postgres",
     operatorsAliases: 0,
     pool: {
       max: 10,
