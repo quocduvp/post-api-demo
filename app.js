@@ -31,5 +31,5 @@ app.use((err, req, res, next) => {
   res.status(400).json(new UnknownException(err.message));
 });
 app.listen(process.env.PORT, () => {
-  console.log(`[Server] Server listion PORT: ${process.env.PORT}`);
+  console.log(`[Server] Server listen PORT: ${process.env.PORT}`);
 });
