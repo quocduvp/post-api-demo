@@ -82,6 +82,30 @@ class AuthValidation {
     return next();
   }
 
+  changePassword(req, res, next) {
+    const schema = Joi.object()
+      .keys({
+        email: Joi.string().email().required(),
+        password: Joi.string().trim().required(),
+        newPassword: Joi.string().trim().required(),
+        confirmPassword: Joi.any()
+          .valid(Joi.ref("newPassword"))
+          .required()
+          .error((error) => {
+            return new Error("confirm password must match password");
+          }),
+      })
+      .options({
+        stripUnknown: true,
+      });
+    const result = schema.validate(req.body);
+    if (result.error) {
+      throw new UnknownException(result.error.message, result.error);
+    }
+    req.body = result.value;
+    return next();
+  }
+
   login(req, res, next) {
     const schema = Joi.object()
       .keys({

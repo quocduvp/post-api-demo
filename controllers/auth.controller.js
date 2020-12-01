@@ -154,6 +154,44 @@ class User {
         password: passwordHash,
         verify_mail_token: false,
       });
+      res.json({
+        message: "Confirm forgot successful",
+        step: "login",
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async changePassword(req, res, next) {
+    try {
+      const { email, password, newPassword } = req.body;
+      let user = await Model.User.findOne({
+        where: {
+          email,
+        },
+      });
+
+      if (!user) {
+        // throw error
+        throw new CustomException(errorCode.AUTH_03);
+      }
+      if (!bcrypt.verifyPassword(password, user.password)) {
+        // throw error
+        throw new CustomException(errorCode.AUTH_05);
+      }
+      if (!user.is_verify_mail) {
+        // throw error
+        throw new CustomException(errorCode.AUTH_04);
+      }
+
+      const newPasswordHash = bcrypt.genPassword(newPassword);
+      await user.update({
+        password: newPasswordHash,
+      });
+      return res.json({
+        message: "Change password successful",
+      });
     } catch (error) {
       next(error);
     }

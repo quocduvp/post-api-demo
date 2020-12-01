@@ -35,4 +35,10 @@ router.post(
   controllers.Auth.User.confirmForgotPassword
 );
 
+router.post(
+  "/change-password",
+  validations.Auth.changePassword,
+  controllers.Auth.User.changePassword
+);
+
 module.exports = router;
