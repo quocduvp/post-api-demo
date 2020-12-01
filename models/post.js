@@ -89,6 +89,7 @@ const Post = context.define(
   },
   {
     createdAt: "created_at",
+    updatedAt: false,
     tableName: "Posts",
     hooks: {},
   }

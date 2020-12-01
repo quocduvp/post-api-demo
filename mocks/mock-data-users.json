@@ -1,0 +1,20 @@
+[
+  {
+    "email": "test@mailinator.com",
+    "password": "$2b$10$SWub5Tmr4un85n8AN3Z5IOMAa.oHmmgZWgHi.tvaIBCF7KIPp55Vi",
+    "role": 1,
+    "is_verify_mail": true
+  },
+  {
+    "email": "test_pro@mailinator.com",
+    "password": "$2b$10$dlajGZ87vABwCDExG5RHpubgSmvyc.vxLHd4lqjZf8Bv4XKIkLUt2",
+    "role": 2,
+    "is_verify_mail": true
+  },
+  {
+    "email": "test123@mailinator.com",
+    "password": "$2b$10$i.nlCoGWVQ1iI3GeSh5WlO.YdpSDfitvYij.GtpJHqx/Sw9/bYNii",
+    "role": 1,
+    "is_verify_mail": false
+  }
+]

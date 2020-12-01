@@ -12,8 +12,8 @@ module.exports = {
      * }], {});
      */
     await queryInterface.bulkInsert(
-      "Posts",
-      require("../mocks/mock-data-posts.json")
+      "Users",
+      require("../mocks/mock-data-users.json")
     );
   },
 
@@ -24,6 +24,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete("Posts", null, {});
+    await queryInterface.bulkDelete("Users", null, {});
   },
 };

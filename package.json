@@ -13,7 +13,8 @@
     "dev:migration:db": "cross-env NODE_ENV=dev npx sequelize-cli db:migrate",
     "stage:migration:db": "cross-env NODE_ENV=stage npx sequelize-cli db:migrate",
     "production:migration:db": "cross-env NODE_ENV=production npx sequelize-cli db:migrate",
-    "dev:seed:db": "cross-env NODE_ENV=dev npx sequelize-cli db:seed:all"
+    "dev:seed:insert": "cross-env NODE_ENV=dev npx sequelize-cli db:seed:all",
+    "dev:seed:undo": "cross-env NODE_ENV=dev npx sequelize-cli db:seed:undo:all"
   },
   "author": "",
   "license": "ISC",
