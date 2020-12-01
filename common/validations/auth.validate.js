@@ -7,7 +7,7 @@ class AuthValidation {
       .keys({
         email: Joi.string().email().required(),
         password: Joi.string().trim().required(),
-        confirm_password: Joi.any()
+        confirmPassword: Joi.any()
           .valid(Joi.ref("password"))
           .required()
           .error((error) => {
@@ -62,9 +62,9 @@ class AuthValidation {
     const schema = Joi.object()
       .keys({
         email: Joi.string().email().required(),
-        forgotToken: Joi.string().email().required(),
+        forgotToken: Joi.string().required(),
         password: Joi.string().trim().required(),
-        confirm_password: Joi.any()
+        confirmPassword: Joi.any()
           .valid(Joi.ref("password"))
           .required()
           .error((error) => {
