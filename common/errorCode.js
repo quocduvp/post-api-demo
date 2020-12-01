@@ -39,4 +39,9 @@ module.exports = {
     statusCode: 400,
     message: "Email has been verified",
   },
+  AUTH_09: {
+    name: "AUTH_09",
+    statusCode: 400,
+    message: "Reset password error",
+  },
 };

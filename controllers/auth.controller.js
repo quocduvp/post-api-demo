@@ -84,9 +84,6 @@ class User {
       if (!user) {
         throw new CustomException(errorCode.AUTH_03);
       }
-      if (!Boolean(Number(user.is_verify_mail))) {
-        throw new CustomException(errorCode.AUTH_08);
-      }
       const emailToken = Math.floor(Math.random() * 999999) + 100000;
       await user.update({
         verify_mail_token: emailToken,
@@ -98,7 +95,7 @@ class User {
         account: {
           id: user.id,
           email,
-          verify_mail_token: user.verify_mail_token,
+          verify_mail_token: emailToken,
         },
       });
     } catch (error) {
@@ -127,12 +124,35 @@ class User {
       });
       res.json({
         message: "Send email forgot password",
-        step: "reset_password",
+        step: "confirm_forgot_password",
         account: {
           id: user.id,
           email,
           verify_mail_token: emailToken,
         },
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async confirmForgotPassword(req, res, next) {
+    try {
+      const { email, forgotToken, password } = req.body;
+      const user = await Model.User.findOne({
+        where: {
+          email,
+          is_verify_mail: true,
+          verify_mail_token: forgotToken,
+        },
+      });
+      const passwordHash = bcrypt.genPassword(password);
+      if (!user) {
+        throw new CustomException(errorCode.AUTH_09);
+      }
+      await user.update({
+        password: passwordHash,
+        verify_mail_token: false,
       });
     } catch (error) {
       next(error);

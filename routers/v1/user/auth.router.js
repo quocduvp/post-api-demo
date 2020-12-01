@@ -29,4 +29,10 @@ router.post(
   controllers.Auth.User.forgot
 );
 
+router.post(
+  "/confirm-forgot-password",
+  validations.Auth.confirmForgotPassword,
+  controllers.Auth.User.confirmForgotPassword
+);
+
 module.exports = router;
