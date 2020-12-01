@@ -23,8 +23,10 @@ router.post(
 
 router.post("/login", validations.Auth.login, controllers.Auth.User.login);
 
-router.post("/forgot-password", (req, res, next) => {
-  res.json({ message: "hello" });
-});
+router.post(
+  "/forgot-password",
+  validations.Auth.resendVerifyEmail,
+  controllers.Auth.User.forgot
+);
 
 module.exports = router;

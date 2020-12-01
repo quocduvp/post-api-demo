@@ -84,7 +84,7 @@ class User {
       if (!user) {
         throw new CustomException(errorCode.AUTH_03);
       }
-      if (!user.is_verify_mail) {
+      if (!Boolean(Number(user.is_verify_mail))) {
         throw new CustomException(errorCode.AUTH_08);
       }
       const emailToken = Math.floor(Math.random() * 999999) + 100000;
@@ -106,7 +106,38 @@ class User {
     }
   }
 
-  async forgotEmail(req, res, next) {}
+  async forgot(req, res, next) {
+    try {
+      const { email } = req.body;
+      const user = await Model.User.findOne({
+        where: {
+          email,
+        },
+      });
+      if (!user) {
+        throw new CustomException(errorCode.AUTH_03);
+      }
+      if (!user.is_verify_mail) {
+        // throw error
+        throw new CustomException(errorCode.AUTH_04);
+      }
+      const emailToken = Math.floor(Math.random() * 999999) + 100000;
+      await user.update({
+        verify_mail_token: emailToken,
+      });
+      res.json({
+        message: "Send email forgot password",
+        step: "reset_password",
+        account: {
+          id: user.id,
+          email,
+          verify_mail_token: emailToken,
+        },
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
 
   async login(req, res, next) {
     try {
