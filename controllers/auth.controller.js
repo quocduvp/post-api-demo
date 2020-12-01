@@ -59,7 +59,7 @@ class User {
       if (!user) {
         throw new CustomException(errorCode.AUTH_07);
       }
-      const user = await user.update({
+      await user.update({
         is_verify_mail: true,
         verify_mail_token: null,
       });
@@ -72,8 +72,6 @@ class User {
       next(error);
     }
   }
-
-  async forgotEmail(req, res, next) {}
 
   async resendVerifyEmail(req, res, next) {
     try {
@@ -90,7 +88,7 @@ class User {
         throw new CustomException(errorCode.AUTH_08);
       }
       const emailToken = Math.floor(Math.random() * 999999) + 100000;
-      const user = await user.update({
+      await user.update({
         verify_mail_token: emailToken,
       });
 
@@ -107,6 +105,8 @@ class User {
       next(error);
     }
   }
+
+  async forgotEmail(req, res, next) {}
 
   async login(req, res, next) {
     try {
