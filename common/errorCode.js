@@ -24,4 +24,19 @@ module.exports = {
     statusCode: 401,
     message: "Invalid password",
   },
+  AUTH_06: {
+    name: "AUTH_06",
+    statusCode: 400,
+    message: "Email already exist",
+  },
+  AUTH_07: {
+    name: "AUTH_07",
+    statusCode: 400,
+    message: "Verify email error",
+  },
+  AUTH_08: {
+    name: "AUTH_08",
+    statusCode: 400,
+    message: "Email has been verified",
+  },
 };

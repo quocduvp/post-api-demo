@@ -3,17 +3,23 @@ const controllers = require("../../../controllers");
 
 const router = require("express").Router();
 
-router.post("/register", validations.Auth.register, (req, res, next) => {
-  res.json({ message: "hello" });
-});
+router.post(
+  "/register",
+  validations.Auth.register,
+  controllers.Auth.User.register
+);
 
-router.post("/verify-phone", (req, res, next) => {
-  res.json({ message: "hello" });
-});
+router.post(
+  "/verify-email",
+  validations.Auth.verifyEmail,
+  controllers.Auth.User.verifyEmail
+);
 
-router.post("/resend-verify-phone", (req, res, next) => {
-  res.json({ message: "hello" });
-});
+router.post(
+  "/resend-verify-email",
+  validations.Auth.resendVerifyEmail,
+  controllers.Auth.User.resendVerifyEmail
+);
 
 router.post("/login", validations.Auth.login, controllers.Auth.User.login);
 
