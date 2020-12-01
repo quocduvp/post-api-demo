@@ -73,6 +73,8 @@ class User {
     }
   }
 
+  async forgotEmail(req, res, next) {}
+
   async resendVerifyEmail(req, res, next) {
     try {
       const { email } = req.body;
