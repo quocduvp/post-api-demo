@@ -18,7 +18,8 @@
     "stage:seed:insert": "cross-env NODE_ENV=stage npx sequelize-cli db:seed:all",
     "stage:seed:undo": "cross-env NODE_ENV=stage npx sequelize-cli db:seed:undo:all",
     "production:seed:insert": "cross-env NODE_ENV=production npx sequelize-cli db:seed:all",
-    "production:seed:undo": "cross-env NODE_ENV=production npx sequelize-cli db:seed:undo:all"
+    "production:seed:undo": "cross-env NODE_ENV=production npx sequelize-cli db:seed:undo:all",
+    "start": "npm run stage:migration:db && npm run stage"
   },
   "author": "",
   "license": "ISC",

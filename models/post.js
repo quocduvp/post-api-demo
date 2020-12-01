@@ -15,19 +15,19 @@ const Post = context.define(
       type: Sequelize.STRING,
     },
     likes: {
-      type: Sequelize.INTEGER(8),
+      type: Sequelize.INTEGER,
       defaultValue: 0,
     },
     shares: {
-      type: Sequelize.INTEGER(8),
+      type: Sequelize.INTEGER,
       defaultValue: 0,
     },
     comments: {
-      type: Sequelize.INTEGER(8),
+      type: Sequelize.INTEGER,
       defaultValue: 0,
     },
     interaction: {
-      type: Sequelize.INTEGER(8),
+      type: Sequelize.INTEGER,
       defaultValue: 0,
     },
     description: {
@@ -62,22 +62,22 @@ const Post = context.define(
       defaultValue: true,
     },
     genre_id: {
-      type: Sequelize.INTEGER(4),
+      type: Sequelize.INTEGER,
     },
     page_id: {
       type: Sequelize.STRING(1000),
     },
     page_name: {
-      type: Sequelize.INTEGER(1000),
+      type: Sequelize.INTEGER,
     },
     page_picture: {
-      type: Sequelize.INTEGER(10000),
+      type: Sequelize.INTEGER,
     },
     country: {
       type: Sequelize.STRING(100),
     },
     ecom_platform_id: {
-      type: Sequelize.INTEGER(4),
+      type: Sequelize.INTEGER,
     },
     product_class: {
       type: Sequelize.STRING(100),
