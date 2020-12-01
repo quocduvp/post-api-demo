@@ -26,10 +26,10 @@ class User {
             Sequelize.where(
               Sequelize.fn(
                 "CONCAT",
-                Sequelize.fn("IFNULL", Sequelize.col("description"), ""),
-                Sequelize.fn("IFNULL", Sequelize.col("page_name"), ""),
-                Sequelize.fn("IFNULL", Sequelize.col("product_class"), ""),
-                Sequelize.fn("IFNULL", Sequelize.col("country"), "")
+                Sequelize.fn("NULLIF", Sequelize.col("description"), ""),
+                Sequelize.fn("NULLIF", Sequelize.col("page_name"), ""),
+                Sequelize.fn("NULLIF", Sequelize.col("product_class"), ""),
+                Sequelize.fn("NULLIF", Sequelize.col("country"), "")
               ),
               "LIKE",
               `%${search}%`
