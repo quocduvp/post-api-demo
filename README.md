@@ -7,3 +7,7 @@
 3. genarate mock data `npm run dev:seed:insert`
 
 4. run server `npm run watch:dev`
+
+#### API Document
+
+[Postman collection](/docs/Post-API.postman_collection.json)
